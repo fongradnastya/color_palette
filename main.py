@@ -23,3 +23,9 @@ class Colour:
         self._change_colour('green', percent, 1)
         self._change_colour('blue', percent, 1)
         return str(self)
+
+    def darken(self, percent: int) -> str:
+        self._change_colour('red', percent, -1)
+        self._change_colour('green', percent, -1)
+        self._change_colour('blue', percent, -1)
+        return str(self)
