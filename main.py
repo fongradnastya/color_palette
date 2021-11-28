@@ -9,23 +9,17 @@ class Colour:
             self.red, self.green, self.blue)
         return colour_code.upper()
 
-    def _colour_transform(self, percent: int, is_lighten: bool) -> str:
-        new_red = self.red + round(self.red * percent / 100) * (-1)
-        new_green = self.green + round(self.green * percent / 100)
-        new_blue = self.blue + round(self.blue * percent / 100)
-        colours = [new_red, new_green, new_blue]
-        for i, colour in enumerate(colours):
-            if colour > 255:
-                colours[i] = 255
-        colour_code = "#{:0>2x}{:0>2x}{:0>2x}".format(*colours)
-        return colour_code
+    def _change_colour(self, colour: str, percent: int, is_dark: int):
+        attribute = getattr(self, colour)
+        attribute += round(attribute * percent / 100) * is_dark
+        if attribute > 255:
+            attribute = 255
+        if attribute < 0:
+            attribute = 0
+        setattr(self, colour, attribute)
 
     def lighten(self, percent: int) -> str:
-        r = g = b = 0
-        colours = [r, g, b]
-        for i, colour in enumerate(colours):
-            colours[i] = self.red + round(self.red * percent / 100)
-            if colour > 255:
-                colours[i] = 255
-        colour_code = "#{:0>2x}{:0>2x}{:0>2x}".format(*colours)
-        return colour_code
+        self._change_colour('red', percent, 1)
+        self._change_colour('green', percent, 1)
+        self._change_colour('blue', percent, 1)
+        return str(self)
