@@ -25,10 +25,7 @@ class Colour:
         return str(self)
 
     def darken(self, percent: int) -> str:
-        colours = [self.red, self.green, self.blue]
-        for i, _ in enumerate(colours):
-            colours[i] -= round(colours[i] * percent / 100)
-            if colours[i] < 0:
-                colours[i] = 0
+        self._change_colour('red', percent, -1)
+        self._change_colour('green', percent, -1)
+        self._change_colour('blue', percent, -1)
         return str(self)
-    
