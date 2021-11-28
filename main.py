@@ -8,4 +8,14 @@ class Colour:
         colour_code = "#{:0>2x}{:0>2x}{:0>2x}".format(
             self.red, self.green, self.blue)
         return colour_code.upper()
-    
+
+    def lighten(self, percent: int):
+        new_red = self.red + round(self.red * percent / 100)
+        new_green = self.green + round(self.green * percent / 100)
+        if new_green > 255:
+            new_green = 255
+        new_blue = self.blue + round(self.blue * percent / 100)
+        colour_code = "#{:0>2x}{:0>2x}{:0>2x}".format(
+            new_red, new_green, new_blue)
+        print(colour_code)
+        return Colour(colour_code)
