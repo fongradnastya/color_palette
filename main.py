@@ -8,3 +8,4 @@ class Colour:
         colour_code = "#{:0>2x}{:0>2x}{:0>2x}".format(
             self.red, self.green, self.blue)
         return colour_code.upper()
+    
