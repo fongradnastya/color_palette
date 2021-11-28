@@ -9,13 +9,23 @@ class Colour:
             self.red, self.green, self.blue)
         return colour_code.upper()
 
-    def lighten(self, percent: int):
-        new_red = self.red + round(self.red * percent / 100)
+    def _colour_transform(self, percent: int, is_lighten: bool) -> str:
+        new_red = self.red + round(self.red * percent / 100) * (-1)
         new_green = self.green + round(self.green * percent / 100)
-        if new_green > 255:
-            new_green = 255
         new_blue = self.blue + round(self.blue * percent / 100)
-        colour_code = "#{:0>2x}{:0>2x}{:0>2x}".format(
-            new_red, new_green, new_blue)
-        print(colour_code)
-        return Colour(colour_code)
+        colours = [new_red, new_green, new_blue]
+        for i, colour in enumerate(colours):
+            if colour > 255:
+                colours[i] = 255
+        colour_code = "#{:0>2x}{:0>2x}{:0>2x}".format(*colours)
+        return colour_code
+
+    def lighten(self, percent: int) -> str:
+        r = g = b = 0
+        colours = [r, g, b]
+        for i, colour in enumerate(colours):
+            colours[i] = self.red + round(self.red * percent / 100)
+            if colour > 255:
+                colours[i] = 255
+        colour_code = "#{:0>2x}{:0>2x}{:0>2x}".format(*colours)
+        return colour_code
