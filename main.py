@@ -1,4 +1,7 @@
 class Colour:
+    """
+    Класс Colour служит для хранения цветов в rgb кодировке
+    """
     def __init__(self, colour_code: str):
         self.red = int(colour_code[1:3], 16)
         self.green = int(colour_code[3:5], 16)
@@ -10,6 +13,10 @@ class Colour:
         return colour_code.upper()
 
     def _change_colour(self, colour: str, percent: int, is_dark: int):
+        """
+        Служебный метод _change_colour изменяет обин из трёх составных
+        цвета на заданный процент
+        """
         attribute = getattr(self, colour)
         attribute += round(attribute * percent / 100) * is_dark
         if attribute > 255:
@@ -19,6 +26,9 @@ class Colour:
         setattr(self, colour, attribute)
 
     def lighten(self, percent: int) -> str:
+        """
+        Метод lighten осветляет цвет на заданный процент
+        """
         if percent == 100:
             self.red = self.blue = self.green = 255
             return '#FFFFFF'
@@ -28,6 +38,9 @@ class Colour:
         return str(self)
 
     def darken(self, percent: int) -> str:
+        """
+        Метод darken затемняет цвет на заданный процент
+        """
         if percent == 100:
             self.red = self.blue = self.green = 0
             return '#000000'
@@ -38,6 +51,10 @@ class Colour:
 
 
 def check_on_examples():
+    """
+    Функция check_on_examples демонстрирует работу класса Colour
+    на примерах
+    """
     first_colour = Colour('#02E305')
     print(f'{first_colour} был преобразован к {first_colour.lighten(50)}')
     second_colour = Colour('#15F47A')
