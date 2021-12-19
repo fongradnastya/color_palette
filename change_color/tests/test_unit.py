@@ -1,6 +1,6 @@
 import unittest
 from nose_parameterized import parameterized
-from change_colour.colour import Colour
+from change_color.color import Colour
 
 
 class ParametrizeTest(unittest.TestCase):

@@ -1,7 +1,7 @@
 import re
 
 
-class Colour:
+class Color:
     """
     Класс Colour служит для хранения rgb цветов и манипуляций с ними
     Он содержит 2 публичных метода: darken и lighten

@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import (QWidget, QPushButton, QFrame, QColorDialog,
                              QVBoxLayout)
 from PyQt5.QtGui import QColor, QIcon
 from PyQt5.QtCore import Qt
-from colour import Colour
+from color import Color
 
 
 class MainWindow(QWidget):
@@ -16,7 +16,7 @@ class MainWindow(QWidget):
         Метод __init__ инициализирует все базовые компоненты
         """
         super().__init__()
-        self.colour = Colour('#000000')
+        self.colour = Color('#000000')
         self.btn = Button('Задать цвет', self)
         self.lighter = Button('Осветлить', self)
         self.darker = Button('Затемнить', self)
@@ -61,7 +61,7 @@ class MainWindow(QWidget):
                 "QWidget { background-color: %s }" % col.name())
             code = col.name().upper()
             print(code)
-            self.colour = Colour(code)
+            self.colour = Color(code)
             print(str(self.colour))
 
     def make_l(self):
