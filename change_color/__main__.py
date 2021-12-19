@@ -1,4 +1,4 @@
-from change_colour.examples import check_on_examples
+from change_color.examples import check_on_examples
 
 
 if __name__ == '__main__':

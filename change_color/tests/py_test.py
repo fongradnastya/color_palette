@@ -1,5 +1,5 @@
 import pytest
-from change_colour.colour import Colour
+from change_color.color import Colour
 # pytest --cov - для вывода coverage
 
 
