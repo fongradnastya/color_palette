@@ -35,8 +35,8 @@ def test_lighten(code, percent, result):
 def test_wrong_per_light(new_colour, percent):
     with pytest.raises(ValueError) as ex:
         new_colour.lighten(percent)
-        error = 'Процент осветления должен быть от 0 до 100 %'
-    assert error == ex.value.args[0], 'Тест с некорректным процентом'
+    assert 'Процент осветления должен быть от 0 до 100 %' \
+           == ex.value.args[0], 'Тест с некорректным процентом'
 
 # Тестирование метода darken
 
@@ -65,8 +65,8 @@ def test_darken(code, percent, result):
 def test_wrong_per_dark(new_colour, percent):
     with pytest.raises(ValueError) as ex:
         new_colour.darken(percent)
-    error = 'Процент затемнения должен быть от 0 до 100 %'
-    assert error == ex.value.args[0], 'Тесты с недопустимым процентом'
+    assert 'Процент затемнения должен быть от 0 до 100 %'\
+           == ex.value.args[0], 'Тесты с недопустимым процентом'
 
 
 @pytest.mark.xfail(raises=ValueError, strict=True)
