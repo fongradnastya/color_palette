@@ -1,5 +1,5 @@
-from change_color.examples import check_on_examples
+from change_color.graphic_ui import main
 
 
 if __name__ == '__main__':
-    check_on_examples()
+    main()

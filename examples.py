@@ -1,4 +1,4 @@
-from .color import Color
+from change_color.color import Color
 
 
 def check_on_examples():
