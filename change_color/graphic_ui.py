@@ -124,6 +124,7 @@ class Button(QPushButton):
         Метод __init__ инициализирует кнопку с пользовательским стилем
         :param title: текст кнопки
         :param parent: объект, на который добавляем кнопку
+        :return: None
         """
         super().__init__(title, parent)
         self.setStyleSheet("background-color: #4c4d62; border: none; "
@@ -133,6 +134,10 @@ class Button(QPushButton):
 
 
 def main():
+    """
+    Функция main запускает основной цикл работы приложения
+    :return: None
+    """
     app = QApplication(sys.argv)
     ex = MainWindow()
     sys.exit(app.exec_())
