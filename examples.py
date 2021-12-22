@@ -1,3 +1,4 @@
+"""Модуль содержит примеры работы для класса Color"""
 from change_color.color import Color
 
 
