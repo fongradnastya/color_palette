@@ -1,3 +1,4 @@
+"""Модуль содержит классы реализации графического интерфейса программы"""
 import sys
 from PyQt5.QtWidgets import (QWidget, QPushButton, QFrame, QColorDialog,
                              QApplication, QSpinBox, QLabel, QHBoxLayout,
