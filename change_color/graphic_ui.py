@@ -43,7 +43,7 @@ class MainWindow(QWidget):
         self.btn.clicked.connect(self.show_dialog)
         self.frm.setStyleSheet("QWidget { background-color: %s }" % col.name())
         self.frm.setMinimumSize(200, 200)
-        self.setWindowIcon(QIcon("icon.png"))
+        self.setWindowIcon(QIcon("../icon.png"))
         self.setGeometry(300, 300, 500, 400)
         self.setWindowTitle('Палитра цветов')
         self.add_spinner()
@@ -132,7 +132,11 @@ class Button(QPushButton):
                            "display: inline-block; font-size: 16px;")
 
 
-if __name__ == '__main__':
+def main():
     app = QApplication(sys.argv)
     ex = MainWindow()
     sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
